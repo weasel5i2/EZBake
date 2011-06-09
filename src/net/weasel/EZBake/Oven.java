@@ -1,8 +1,11 @@
 package net.weasel.EZBake;
 
+import com.nijiko.permissions.PermissionHandler;
+import com.nijikokun.bukkit.Permissions.Permissions;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.event.Event.Priority;
 import org.bukkit.event.Event.Type;
+import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -13,6 +16,7 @@ public class Oven extends JavaPlugin
 	public static CommandExecutor cmdHandler = null;
 	public static PluginManager manager = null;
 	public static EventHandler evtHandler = null;
+	public static PermissionHandler Permissions;
 	
 	@Override
 	public void onDisable() 
@@ -30,6 +34,8 @@ public class Oven extends JavaPlugin
 		evtHandler = new EventHandler(this);
 		cmdHandler = new CommandHandler(this);
 		getCommand( "ezbake" ).setExecutor( cmdHandler );
+	
+		setupPermissions( manager );
 		
 		manager.registerEvent(Type.PLAYER_INTERACT, evtHandler, Priority.Normal, this );
 		logOutput( pluginName + " v" + pluginVersion + " enabled!" );
@@ -38,5 +44,23 @@ public class Oven extends JavaPlugin
 	public static void logOutput( String message )
 	{
 		System.out.println( "[" + pluginName + "] " + message );
+	}
+
+	private static void setupPermissions( PluginManager pm ) 
+	{
+		Plugin test = pm.getPlugin( "Permissions" );
+
+	    if( Oven.Permissions == null ) 
+	    {
+	    	if (test != null) 
+	    	{
+	    		Oven.Permissions = ((Permissions)test).getHandler();
+	    		logOutput( "Permissions system ready." );
+	    	}
+	    	else 
+	    	{
+	    		logOutput( "Permissions not detected. Let them ALL eat cake!" );
+	        }
+	    }
 	}
 }
