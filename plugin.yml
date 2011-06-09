@@ -1,0 +1,7 @@
+name: Oven
+main: net.weasel.EZBake.Oven
+version: 1.0
+commands:
+  ezbake:
+    description: "Create an EZ-Bake oven for permanent cake."
+    usage: "(handled by plugin)"
