@@ -22,9 +22,9 @@ public class CommandHandler implements CommandExecutor
 		if( arg0 instanceof Player )
 		{
 			Player p = (Player)arg0;
-			Block targetBlock = p.getTargetBlock( null, 4 );
+			Block targetBlock = p.getTargetBlock( null, 10 );
 			
-			if( targetBlock.getTypeId() == 35 && targetBlock.getData() == 4 )
+			if( targetBlock.getTypeId() == 35 && targetBlock.getData() == 3 )
 			{
 				Block blockAbove = targetBlock.getFace(BlockFace.UP);
 				
