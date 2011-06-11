@@ -17,6 +17,7 @@ public class Oven extends JavaPlugin
 	public static PluginManager manager = null;
 	public static EventHandler evtHandler = null;
 	public static PermissionHandler Permissions;
+        public static boolean usePermissions;
 	
 	@Override
 	public void onDisable() 
