@@ -56,10 +56,12 @@ public class Oven extends JavaPlugin
 	    	{
 	    		Oven.Permissions = ((Permissions)test).getHandler();
 	    		logOutput( "Permissions system ready." );
+                        usePermissions = true;
 	    	}
 	    	else 
 	    	{
 	    		logOutput( "Permissions not detected. Let them ALL eat cake!" );
+                        usePermissions = false;
 	        }
 	    }
 	}
