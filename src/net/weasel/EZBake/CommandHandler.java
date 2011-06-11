@@ -22,7 +22,7 @@ public class CommandHandler implements CommandExecutor
 		if( arg0 instanceof Player )
 		{
 			Player p = (Player)arg0;
-			
+			if(Oven.usePermissions == true){
 			if( isAllowedCreate( p ) == false )
 			{
 				p.sendMessage( "Unknown console command. Type \"help\" for help." );
@@ -48,6 +48,12 @@ public class CommandHandler implements CommandExecutor
 				p.sendMessage( "Unknown console command. Type \"help\" for help." );
 				return true;
 			}
+                     }
+                     else
+                     {
+                     if(p.isOp()){
+                     //do whatever if the player is op here
+                     }
 		}
 		
 		return false;
