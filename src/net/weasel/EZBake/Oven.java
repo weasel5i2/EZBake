@@ -17,6 +17,7 @@ public class Oven extends JavaPlugin
 	public static PluginManager manager = null;
 	public static EventHandler evtHandler = null;
 	public static PermissionHandler Permissions;
+	public static boolean usePermissions = false;
 	
 	@Override
 	public void onDisable() 
@@ -55,10 +56,12 @@ public class Oven extends JavaPlugin
 	    	if (test != null) 
 	    	{
 	    		Oven.Permissions = ((Permissions)test).getHandler();
+		    	usePermissions = true;
 	    		logOutput( "Permissions system ready." );
 	    	}
 	    	else 
 	    	{
+		    	usePermissions = false;
 	    		logOutput( "Permissions not detected. Let them ALL eat cake!" );
 	        }
 	    }

@@ -1,6 +1,6 @@
 name: Oven
 main: net.weasel.EZBake.Oven
-version: 1.1
+version: 1.2
 author: weasel5i2
 commands:
   ezbake:

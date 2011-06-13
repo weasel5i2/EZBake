@@ -55,9 +55,16 @@ public class CommandHandler implements CommandExecutor
 
 	public static boolean isAllowedCreate( Player player )
 	{
-		if( Oven.Permissions.has(player, "ezbake.create")) 
-		    return true;
+		if( Oven.usePermissions == true )
+		{
+			if( Oven.Permissions.has(player, "ezbake.create")) 
+			    return true;
+			else
+				return false;
+		}
 		else
-			return false;
+		{
+			return( player.isOp() );
+		}
 	}
 }
