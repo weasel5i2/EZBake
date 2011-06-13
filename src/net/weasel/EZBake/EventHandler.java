@@ -30,6 +30,7 @@ public class EventHandler extends PlayerListener
 				
 				if( below.getTypeId() == 35 && below.getData() == 4 )
 				{
+                                    if( Oven.usePermissions == true){
 					if( isAllowedUse( event.getPlayer() ) == true )
 					{
 						if( target.getData() != 0 )
@@ -43,6 +44,10 @@ public class EventHandler extends PlayerListener
 						event.getPlayer().sendMessage( "Hey! That's not your cake!" );
 						event.setCancelled( true );
 					}
+                                     else{
+                                      if(p.isOp()){
+                                      //add whatever the player would do here if he was op. or remove this and just put else
+                                   }
 				}
 			}
 		}
